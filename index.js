@@ -5,7 +5,7 @@
    2. Reveal on scroll — fades escopados ao #sobre
    3. Logo escuro sobre seções claras
    4. 02 Tecnologia (#tech-scroll) — camadas 3D dirigidas por scroll
-   5. Madeiras — piso 3D interativo
+   5. Madeiras — painel 3D interativo (em pé)
    ═══════════════════════════════════════════════════════════════ */
 
 /* Hero split — progresso 0→1 conforme rola dentro do runway do #hero-viewport. */
@@ -129,45 +129,63 @@
   io.observe(sec);
 })();
 
-/* Madeiras — piso 3D fechado, girável com o mouse/toque (seção #madeiras-tipos) */
+/* Madeiras — painel 3D em pé, girável com o mouse/toque (seção #madeiras-tipos).
+   ÚNICO movimento: o arraste horizontal gira no eixo vertical do painel
+   (rotateY). LEAN e TILT são fixos e ficam por fora do rotateY, então definem
+   um eixo de giro levemente tombado que não muda de lugar na tela: o painel
+   nunca deita nem balança, só roda em torno desse eixo. */
 (function(){
   const stage = document.querySelector('#madeiras-tipos [data-floor3d]');
   const stack = document.querySelector('#madeiras-tipos [data-floor3d-stack]');
   if (!stage || !stack) return;
 
-  let rotX = 58, rotZ = -38;
-  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const LEAN = -5;          // inclinação do eixo para a esquerda
+  const TILT = 8;           // inclinação para trás, revela a borda superior
+  let rotY = -34;
   let raf = 0;
   const render = () => {
     raf = 0;
-    stack.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateZ(${rotZ.toFixed(2)}deg)`;
+    stack.style.transform =
+      `rotateZ(${LEAN}deg) rotateX(${TILT}deg) rotateY(${rotY.toFixed(2)}deg)`;
   };
   const schedule = () => { if (!raf) raf = requestAnimationFrame(render); };
 
-  let dragging = false, lastX = 0, lastY = 0;
+  let dragging = false, lastX = 0;
 
-  const move = (x, y) => {
+  const move = (x) => {
     if (!dragging) return;
-    rotZ -= (x - lastX) * 0.4;
-    rotX = clamp(rotX - (y - lastY) * 0.4, 8, 88);
-    lastX = x; lastY = y;
+    rotY += (x - lastX) * 0.4;
+    lastX = x;
     schedule();
   };
 
-  const onMouseMove = (e) => move(e.clientX, e.clientY);
+  const onMouseMove = (e) => move(e.clientX);
   const onMouseUp = () => end();
+  const onTouchEnd = () => end();
+
+  /* No toque, o gesto só é capturado se for claramente horizontal — assim um
+     swipe vertical sobre o painel continua rolando a página. */
+  let startX = 0, startY = 0, eixo = null;
   const onTouchMove = (e) => {
     if (!dragging) return;
     const t = e.touches[0];
+    if (!eixo) {
+      const dx = Math.abs(t.clientX - startX);
+      const dy = Math.abs(t.clientY - startY);
+      if (dx < 6 && dy < 6) return;
+      eixo = dx > dy ? 'x' : 'y';
+      if (eixo === 'y') { end(); return; }
+    }
     if (e.cancelable) e.preventDefault();
-    move(t.clientX, t.clientY);
+    move(t.clientX);
   };
-  const onTouchEnd = () => end();
 
   const start = (x, y) => {
     dragging = true;
     lastX = x;
-    lastY = y;
+    startX = x;
+    startY = y;
+    eixo = null;
     stage.classList.add('is-grabbing');
     window.addEventListener('mousemove', onMouseMove, { passive: true });
     window.addEventListener('mouseup', onMouseUp, { passive: true });

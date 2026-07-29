@@ -1184,23 +1184,14 @@
         const total = document.getElementById('texturas-total');
         const stage = wrap.querySelector('.texturas-stage');  
 
+        // Somente as espécies que compõem a linha de PAINÉIS (ripados, tamburato,
+        // wall panels e revestimentos contínuos).
         // Ordenadas por luminância média da textura: da mais clara à mais escura.
-        // Descrições oficiais de parket.com.br (seção Revestimentos).
         const ESPECIES = [
-          ['cabreuva-branca', 'Cabreúva Branca', 'Mais clara e delicada, é valorizada por sua suavidade e por criar atmosferas leves e acolhedoras.'],
-          ['pinho-de-riga', 'Pinho de Riga', 'Clara e de tom amarelado suave, com nós marcantes que remetem à madeira das construções históricas brasileiras.'],
           ['tauari', 'Tauari', 'Clara e homogênea, o tauari ilumina os ambientes, oferecendo um visual moderno e minimalista.'],
-          
-          
-          ['peroba-do-campo', 'Peroba do Campo', 'Tradicional e charmosa, sua coloração variada entre o rosado e o dourado confere autenticidade e beleza natural.'],
-          ['cabreuva-dourada', 'Cabreúva Dourada', 'Apresenta brilho natural e cor dourada, com veios elegantes que proporcionam luxo e vitalidade.'],
-          ['catuaba', 'Catuaba', 'Madeira de cor intensa e veios bem definidos, ideal para quem busca personalidade e impacto estético.'],
-          
-          ['pau-ferro', 'Pau Ferro', 'De contraste intenso entre marrom e bege, destaca-se pela beleza exótica e pelo caráter contemporâneo.'],
-          
+          ['carvalho-europeu', 'Carvalho Europeu', 'Nobre e atemporal, de veios longos e toque acetinado, equilibra tradição e modernidade em qualquer ambiente.'],
+          ['freijo', 'Freijó', 'De tom castanho-dourado e veios suaves, é a madeira mais versátil da marcenaria fina, referência em painéis ripados.'],
           ['cumaru', 'Cumaru', 'Madeira extremamente resistente, de cor castanho-avermelhada, indicada para projetos que exigem durabilidade e imponência.'],
-          
-          
         ];
         const n = ESPECIES.length;
         const pad = (v) => String(v).padStart(2, '0');
