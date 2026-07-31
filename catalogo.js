@@ -294,6 +294,9 @@
           title: 'Painéis',
           desc: 'Geometria viva. Revestimentos que trazem ritmo e profundidade às paredes através da marcenaria fina.',
           cover: 'paineis/image.webp',
+          videos: [
+            { type: 'youtube', id: 'Pb4KbS9lRxI', vertical: true, title: 'Geometria viva: o painel que dá ritmo à parede' }
+          ],
           images: [
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-01.jpg", name: "Carvalho Europeu Customizado" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-02.jpg", name: "Ripado de Freijó" },
