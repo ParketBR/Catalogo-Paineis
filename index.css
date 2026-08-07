@@ -1008,6 +1008,8 @@
   --ink-40: rgba(0, 0, 0, .38);
   --ink-10: rgba(0, 0, 0, .1);
   --accent: #9a6638;
+  /* lavagem quente derivada do accent, para o bloco de fecho */
+  --fecho-bg: rgba(154, 102, 56, .06);
   position: relative;
   z-index: 21;
   background: var(--branco);
@@ -1319,42 +1321,48 @@
   stroke-width: 1.4;
 }
 
-/* Cartões comparativos */
-#madeiras-tipos .mtipos-cards {
+/* Atributos do painel — três colunas separadas só por filete, sem caixas */
+#madeiras-tipos .mtipos-atributos {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 4rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 3.5vw, 3rem);
+  border-top: 1px solid var(--ink-10);
 }
 
-#madeiras-tipos .mtipos-card {
-  border: 1px solid var(--ink-10);
-  border-top: 2px solid var(--ink-40);
-  padding: clamp(1.75rem, 3vw, 2.5rem);
+#madeiras-tipos .mtipos-atr {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .85rem;
 }
 
-#madeiras-tipos .mtipos-card--eng {
-  border-top-color: var(--accent);
+#madeiras-tipos .mtipos-atr+.mtipos-atr {
+  padding-left: clamp(2rem, 4vw, 4rem);
+  border-left: 1px solid var(--ink-10);
+  margin-left: calc(-1 * clamp(2rem, 4vw, 4rem) / 2);
 }
 
-#madeiras-tipos .mtipos-card-title {
-  margin: 0;
+#madeiras-tipos .mtipos-atr-num {
   font-family: var(--font-display);
-  font-weight: 300;
-  letter-spacing: -.01em;
-  line-height: 1.2;
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  color: var(--ink-95);
-}
-
-#madeiras-tipos .mtipos-card--eng .mtipos-card-title {
+  font-weight: 200;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: .9;
+  letter-spacing: -.04em;
   color: var(--accent);
 }
 
-#madeiras-tipos .mtipos-card p {
+#madeiras-tipos .mtipos-atr-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  color: var(--ink-95);
+}
+
+#madeiras-tipos .mtipos-atr p {
   margin: 0;
   font-size: var(--text-small);
   font-weight: 300;
@@ -1362,38 +1370,34 @@
   color: var(--ink-70);
 }
 
-#madeiras-tipos .mtipos-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: .6rem;
+@media (max-width:900px) {
+  #madeiras-tipos .mtipos-atributos {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  #madeiras-tipos .mtipos-atr+.mtipos-atr {
+    padding-left: 0;
+    margin-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--ink-10);
+    padding-top: clamp(1.5rem, 4vw, 2rem);
+    margin-top: clamp(1.5rem, 4vw, 2rem);
+  }
 }
 
-#madeiras-tipos .mtipos-list li {
-  position: relative;
-  padding-left: 1.4rem;
-  font-size: var(--text-small);
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--ink-70);
+/* Fecho — bloco destacado que encerra a seção */
+#madeiras-tipos .mtipos-fecho {
+  max-width: 54rem;
+  margin: clamp(3rem, 5vw, 4.5rem) 0 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.75rem, 3.5vw, 2.75rem);
+  background: var(--fecho-bg);
+  border-left: 2px solid var(--accent);
+  border-radius: 3px;
 }
 
-#madeiras-tipos .mtipos-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: .62em;
-  width: 6px;
-  height: 1px;
-  background: var(--ink-40);
-}
-
-/* Fecho */
 #madeiras-tipos .mtipos-outro {
-  max-width: 44rem;
-  margin: clamp(2.5rem, 4vw, 3.5rem) 0 0;
+  margin: 0;
   font-size: var(--text-body);
   font-weight: 300;
   line-height: 1.75;
@@ -1464,10 +1468,6 @@
 }
 
 @media (max-width:768px) {
-  #madeiras-tipos .mtipos-cards {
-    grid-template-columns: 1fr;
-  }
-
   #madeiras-tipos .mtipos-stage {
     --w: min(54vw, 230px);
     --t: clamp(10px, 3vw, 14px);
