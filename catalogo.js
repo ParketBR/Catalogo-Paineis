@@ -532,7 +532,7 @@
             media = `
               <div class="video-block custom-player${v.vertical ? ' vertical' : ''}">
                 <video preload="metadata" playsinline${v.poster ? ` poster="${v.poster}"` : ''}>
-                  <source src="${v.src}" type="video/mp4">
+                  <source src="${v.src}"${/\.mov([?#]|$)/i.test(v.src) ? '' : ' type="video/mp4"'}>
                 </video>
                 <div class="video-play" aria-hidden="true"></div>
               </div>`;
