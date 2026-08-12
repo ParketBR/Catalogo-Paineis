@@ -296,7 +296,12 @@
           cover: 'paineis/image.webp',
           videos: [
             { type: 'youtube', id: 'Pb4KbS9lRxI', vertical: true, title: 'Geometria viva: o painel que dá ritmo à parede' },
-            { type: 'youtube', id: 'sPjT6z1a9to', vertical: true, title: 'Painel em régua: a madeira que organiza a parede' }
+            { type: 'youtube', id: 'sPjT6z1a9to', vertical: true, title: 'Painel em régua: a madeira que organiza a parede' },
+            { type: 'youtube', id: 'Q5sS_v0cNis', vertical: true, title: 'Painel em régua · Canela de Demolição — Fazenda Santa Eliza' },
+            { type: 'youtube', id: 'CMieR9lv7aQ', vertical: true, title: 'Painel em régua · Carvalho Europeu — Takran' },
+            { type: 'youtube', id: 'RxLZnF6fm04', vertical: true, title: 'Painel · Carvalho Europeu, régua 30 cm × 3 m — Bia Prado' },
+            { type: 'youtube', id: 'FBStoQuucmg', vertical: true, title: 'Painel em régua · Carvalho Europeu — Fernanda Marques' },
+            { type: 'youtube', id: 'RKJVkxU_62M', vertical: true, title: 'Painel em régua · Carvalho Europeu Naturalle — Davi Bastos' }
           ],
           images: [
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-01.jpg", name: "Carvalho Europeu Customizado" },
