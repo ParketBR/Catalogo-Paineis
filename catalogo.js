@@ -295,7 +295,8 @@
           desc: 'Geometria viva. Revestimentos que trazem ritmo e profundidade às paredes através da marcenaria fina.',
           cover: 'paineis/image.webp',
           videos: [
-            { type: 'youtube', id: 'Pb4KbS9lRxI', vertical: true, title: 'Geometria viva: o painel que dá ritmo à parede' }
+            { type: 'youtube', id: 'Pb4KbS9lRxI', vertical: true, title: 'Geometria viva: o painel que dá ritmo à parede' },
+            { type: 'youtube', id: 'sPjT6z1a9to', vertical: true, title: 'Painel em régua: a madeira que organiza a parede' }
           ],
           images: [
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-01.jpg", name: "Carvalho Europeu Customizado" },
