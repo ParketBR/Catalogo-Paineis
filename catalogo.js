@@ -301,7 +301,8 @@
             { type: 'youtube', id: 'CMieR9lv7aQ', vertical: true, title: 'Painel em régua · Carvalho Europeu — Takran' },
             { type: 'youtube', id: 'RxLZnF6fm04', vertical: true, title: 'Painel · Carvalho Europeu, régua 30 cm × 3 m — Bia Prado' },
             { type: 'youtube', id: 'FBStoQuucmg', vertical: true, title: 'Painel em régua · Carvalho Europeu — Fernanda Marques' },
-            { type: 'youtube', id: 'RKJVkxU_62M', vertical: true, title: 'Painel em régua · Carvalho Europeu Naturalle — Davi Bastos' }
+            { type: 'youtube', id: 'RKJVkxU_62M', vertical: true, title: 'Painel em régua · Carvalho Europeu Naturalle — Davi Bastos' },
+            { type: 'youtube', id: '4Oqr5_7LPDM', vertical: true, title: 'Painel · Carvalho Europeu Naturalle — Silvia Verissimo' }
           ],
           images: [
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-01.jpg", name: "Carvalho Europeu Customizado" },
