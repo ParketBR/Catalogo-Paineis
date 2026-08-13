@@ -27,7 +27,16 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="catalogo.css?v=4">
+  <!-- Detecção de Windows. Roda antes do CSS para a classe já existir na
+       primeira pintura (sem flash). Ativa os ajustes .is-win no catalogo.css. -->
+  <script>
+    (function () {
+      var p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent || '';
+      if (/win/i.test(p)) document.documentElement.classList.add('is-win');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="catalogo.css?v=5">
   <link rel="stylesheet" href="index.css?v=34">
 </head>
 

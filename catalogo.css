@@ -18,9 +18,13 @@
       --branco-40: rgba(255,255,255,0.40);
       --branco-10: rgba(255,255,255,0.10);
 
-      /* Tipografia */
-      --font-display: 'Inter', sans-serif;
-      --font-body: 'Inter', sans-serif;
+      /* Tipografia
+         Fallback explícito: sem isso o Windows cai em Arial, que não tem
+         peso 300 — o navegador então "inventa" um light falso e a fonte
+         aparece deformada. system-ui/Segoe UI mantêm a métrica próxima. */
+      --font-stack: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-display: 'Inter', var(--font-stack);
+      --font-body: 'Inter', var(--font-stack);
 
       /* Escala tipográfica */
       --text-display: 72px;
@@ -49,7 +53,30 @@
       color: var(--branco);
       font-family: var(--font-body);
       overflow-x: hidden;
+      /* Proíbe o navegador de sintetizar peso/itálico quando a Inter
+         não estiver disponível — é o que causa o borrão no Windows. */
+      font-synthesis: none;
+      -webkit-font-synthesis: none;
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       AJUSTES WINDOWS (.is-win — marcado por script no <head>)
+
+       O Windows renderiza via DirectWrite, que aplica hinting
+       vertical agressivo: a Inter Light (300) fica fina e trêmula,
+       e o tracking negativo encavala as letras. Estes ajustes só
+       valem no Windows; Mac, iOS e Android não são tocados.
+       ═══════════════════════════════════════════════════════════ */
+
+    .is-win body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ⬇ Espaço reservado para os ajustes finos (peso, tracking, tamanho).
+       Ainda não preenchido: depende do print do Windows para saber se o
+       defeito é fonte fina demais ou letra encavalada. Não chutar aqui —
+       um override errado piora o que já está correto. */
 
     parket-nav > nav { display: none !important; }
 

@@ -32,7 +32,14 @@
     }
   </script>
   <style>
-    body { background-color: #000000; color: #FFFFFF; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    body {
+      background-color: #000000; color: #FFFFFF; overflow-x: hidden;
+      /* Fallback explícito + sem síntese de peso: no Windows, 'sans-serif'
+         sozinho vira Arial, que não tem light e sai deformada. */
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-synthesis: none;
+      -webkit-font-synthesis: none;
+    }
     .liquid-glass {
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
       backdrop-filter: blur(40px);
