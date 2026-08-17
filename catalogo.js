@@ -312,7 +312,7 @@
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-08.jpg", name: "Cumaru" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-09.jpg", name: "Carvalho Europeu Mont Blanc" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-10.jpg", name: "Freijó" },
-            { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-11.jpg", name: "Shou Sugi Ban" },
+            { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-11.jpg", name: "Freijó" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-12.jpg", name: "Carvalho Europeu Customizado" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-13.jpg", name: "Freijó" },
             { src: "https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-14.jpg", name: "Freijó" },

@@ -338,7 +338,7 @@ const PARKET_PHOTOS = (() => {
     'https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-17.jpg',
     'https://parket.com.br/wp-content/uploads/2025/10/PRO_PA-18.jpg',
   ];
-  const paineisNames = { 1:'Carvalho Europeu Customizado',2:'Freijó',3:'Peroba do Campo',4:'Freijó Customizado',5:'Cumaru',6:'Carvalho Europeu',7:'Freijó',8:'Shou Sugi Ban',9:'Carvalho Europeu Customizado',10:'Freijó',11:'Freijó',12:'Cumaru',13:'Shou Sugi Ban',14:'Shou Sugi Ban + Freijó',15:'Carvalho Europeu Customizado' };
+  const paineisNames = { 1:'Carvalho Europeu Customizado',2:'Freijó',3:'Peroba do Campo',4:'Freijó Customizado',5:'Cumaru',6:'Carvalho Europeu',7:'Freijó',8:'Freijó',9:'Carvalho Europeu Customizado',10:'Freijó',11:'Freijó',12:'Cumaru',13:'Shou Sugi Ban',14:'Shou Sugi Ban + Freijó',15:'Carvalho Europeu Customizado' };
   paineisUrls.forEach((src, idx) => {
     photos.push({ cat: 'Painéis', name: paineisNames[idx+1], page: 'paineis.html', src });
   });
