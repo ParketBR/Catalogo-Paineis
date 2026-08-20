@@ -1226,9 +1226,8 @@
         // wall panels e revestimentos contínuos).
         // Ordenadas por luminância média da textura: da mais clara à mais escura.
         const ESPECIES = [
-          ['tauari', 'Tauari', 'Clara e homogênea, o tauari ilumina os ambientes, oferecendo um visual moderno e minimalista.'],
-          ['carvalho-europeu', 'Carvalho Europeu', 'Nobre e atemporal, de veios longos e toque acetinado, equilibra tradição e modernidade em qualquer ambiente.'],
-          ['freijo', 'Freijó', 'De tom castanho-dourado e veios suaves, é a madeira mais versátil da marcenaria fina, referência em painéis ripados.'],
+          ['carvalho-europeu', 'Carvalho Europeu', 'Nobreza atemporal em tons claros e acetinados, com veios suaves que trazem equilíbrio entre tradição e modernidade.'],
+          ['freijo', 'Freijó', 'De coloração amendoada e desenho discreto, confere sofisticação serena e um acabamento naturalmente elegante.'],
           ['cumaru', 'Cumaru', 'Madeira extremamente resistente, de cor castanho-avermelhada, indicada para projetos que exigem durabilidade e imponência.'],
         ];
         const n = ESPECIES.length;
@@ -1237,7 +1236,7 @@
         // Monta as imagens empilhadas (crossfade por opacity)
         ESPECIES.forEach(([slug, label], i) => {
           const img = document.createElement('img');
-          img.src = `texturas/${slug}.jpg`;
+          img.src = `texturas/${slug}.webp`;
           img.alt = '';
           img.loading = 'lazy';
           img.decoding = 'async';
@@ -1295,11 +1294,16 @@
           palco.classList.add('is-usado');
         };
 
-        stage.style.setProperty('--texturas-p', '0');
+        // Com uma única espécie não há para onde navegar: as duas setas nascem
+        // desativadas e a dica de arraste sai de cena (o ir() nunca roda, então
+        // ele não teria como ajustar nada disso depois).
+        const unica = n === 1;
+        stage.style.setProperty('--texturas-p', unica ? '1' : '0');
         setas.forEach(b => {
-          if (Number(b.dataset.dir) < 0) b.disabled = true;
+          if (unica || Number(b.dataset.dir) < 0) b.disabled = true;
           b.addEventListener('click', () => ir(idx + Number(b.dataset.dir), Number(b.dataset.dir)));
         });
+        if (unica) { palco.classList.add('is-usado'); wrap.classList.add('texturas-unica'); }
 
         // ── roda/trackpad horizontal (deltaX) e shift+scroll
         let acumulado = 0;
