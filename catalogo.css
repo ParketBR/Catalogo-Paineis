@@ -1,7 +1,7 @@
     /* ═══════════════════════════════════════════════════════════
        PARKET DESIGN SYSTEM — tokens (fonte: #PARKET DESIGN SYSTEM)
        Paleta: madeira → branco → preto → cinza → destaque
-       Tipografia: Inter fina (display) + Inter (interface)
+       Tipografia: Geist fina (display) + Geist (interface)
        Escala: 72/56/42/32/24/20/18/16/14 · espaçamento múltiplo de 8
        Movimento: 0.6s cubic-bezier(.22,.61,.36,1)
        ═══════════════════════════════════════════════════════════ */
@@ -23,8 +23,8 @@
          peso 300 — o navegador então "inventa" um light falso e a fonte
          aparece deformada. system-ui/Segoe UI mantêm a métrica próxima. */
       --font-stack: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --font-display: 'Inter', var(--font-stack);
-      --font-body: 'Inter', var(--font-stack);
+      --font-display: 'Geist', sans-serif;
+      --font-body: 'Geist', sans-serif;
 
       /* Escala tipográfica */
       --text-display: 72px;
@@ -53,7 +53,7 @@
       color: var(--branco);
       font-family: var(--font-body);
       overflow-x: hidden;
-      /* Proíbe o navegador de sintetizar peso/itálico quando a Inter
+      /* Proíbe o navegador de sintetizar peso/itálico quando a Geist
          não estiver disponível — é o que causa o borrão no Windows. */
       font-synthesis: none;
       -webkit-font-synthesis: none;
@@ -63,7 +63,7 @@
        AJUSTES WINDOWS (.is-win — marcado por script no <head>)
 
        O Windows renderiza via DirectWrite, que aplica hinting
-       vertical agressivo: a Inter Light (300) fica fina e trêmula,
+       vertical agressivo: a Geist Light (300) fica fina e trêmula,
        e o tracking negativo encavala as letras. Estes ajustes só
        valem no Windows; Mac, iOS e Android não são tocados.
        ═══════════════════════════════════════════════════════════ */
